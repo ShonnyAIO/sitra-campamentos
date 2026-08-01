@@ -38,11 +38,12 @@ html, body, [data-testid="stAppViewContainer"], .stApp {
     color: #0B1F3A !important;
 }
 
-/* Ocultar barra de herramientas y menú superior */
-header[data-testid="stHeader"] { visibility: hidden; height: 0%; }
-div[data-testid="stToolbar"] { visibility: hidden; height: 0rem; }
-#MainMenu { visibility: hidden; }
-footer { visibility: hidden; }
+/* Mostrar barra de herramientas, header y menú superior */
+header[data-testid="stHeader"] { visibility: visible !important; }
+div[data-testid="stToolbar"] { visibility: visible !important; }
+#MainMenu { visibility: visible !important; }
+footer { visibility: visible !important; }
+
 
 /* Sidebar en modo claro con textos visibles */
 [data-testid="stSidebar"] {
@@ -117,6 +118,7 @@ label,
 .small { color:var(--gray); font-size:.86rem; }
 .metric-card { background:#F8FBFF; border:1px solid #E2EEF9; border-radius:18px; padding:1rem; }
 .footer { border-top:1px solid #E8EEF4; padding-top:1rem; color:#6D7785; font-size:.82rem; }
+.stToolbarActions{ display: none; }
 </style>
 """
 st.markdown(CSS, unsafe_allow_html=True)
