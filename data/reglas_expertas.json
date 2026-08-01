@@ -1,0 +1,8 @@
+[
+  {"id":"R-001","si":"ocupacion > 120%","entonces":"Riesgo de hacinamiento alto","accion":"Activar redistribución de espacios, brigadas y control de convivencia.","objetivo":"OE-1.1","elemento":"EE-10"},
+  {"id":"R-002","si":"agua por persona < 15 L/día","entonces":"Riesgo WASH crítico","accion":"Solicitar agua, activar racionamiento transparente, puntos de higiene y monitoreo de calidad.","objetivo":"OE-1.2","elemento":"EE-06"},
+  {"id":"R-003","si":"rumores altos + comunicación oficial baja","entonces":"Riesgo de información alto","accion":"Designar vocero único, cartelera oficial, boletín diario y verificación de rumores.","objetivo":"OE-2.2","elemento":"EE-07"},
+  {"id":"R-004","si":"talento interno no registrado","entonces":"Debilidad de historia viva","accion":"Levantar mapa de talento, necesidades y patologías para activar brigadas.","objetivo":"OE-1.1","elemento":"EE-01"},
+  {"id":"R-005","si":"insumos disponibles no tabulados","entonces":"Oportunidad de inventario inteligenciado","accion":"Crear inventario de entorno y redistribuir por requerimiento real.","objetivo":"OE-2.1","elemento":"EE-06"},
+  {"id":"R-006","si":"bloqueo o condicionamiento externo","entonces":"Riesgo extorno","accion":"Activar protocolos de enlace, criterios de aceptación y rutas alternativas.","objetivo":"OE-3.2","elemento":"EE-08"}
+]

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="220" viewBox="0 0 640 220">
+  <rect width="640" height="220" rx="28" fill="#F0FAFF"/>
+  <path d="M0 0 H640" stroke="#FFD447" stroke-width="12"/>
+  <path d="M213 0 H426" stroke="#0B5CAD" stroke-width="12"/>
+  <path d="M426 0 H640" stroke="#D62828" stroke-width="12"/>
+  <circle cx="92" cy="110" r="58" fill="#0B5CAD" opacity="0.12"/>
+  <path d="M56 132 L92 72 L128 132 Z" fill="#0B5CAD"/>
+  <path d="M74 132 V106 H110 V132" fill="#F0FAFF"/>
+  <text x="170" y="92" font-family="Arial" font-size="36" fill="#0B1F3A" font-weight="700">SITRA-Campamentos</text>
+  <text x="170" y="132" font-family="Arial" font-size="18" fill="#0B5CAD">Transiliencia · Riesgo · Beneficios · Ciudadanía inteligente</text>
+  <text x="170" y="164" font-family="Arial" font-size="14" fill="#5F6B7A">Campamentos Transitorios</text>
+</svg>

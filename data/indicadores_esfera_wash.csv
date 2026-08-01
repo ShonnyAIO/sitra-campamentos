@@ -1,0 +1,7 @@
+﻿"Indicador","Meta","Frecuencia","Responsable","Decision"
+"Agua disponible","15 L/persona/día inicial; 20-50 L/persona/día en estabilización","Diaria","Gerente centro + brigada agua","Si baja, priorizar consumo/cocina/higiene y solicitar suministro"
+"CRL punto consumo","0.2-0.5 mg/L referencia de emergencia","3 veces/día","Monitor Agua Segura","Si bajo o alto, corregir y repetir medición"
+"Turbidez","<5 NTU","Diaria y al recibir cisterna","Monitor Agua Segura","Si >5, filtrar/decantar/tratar y escalar"
+"Coliformes fecales","Ausencia","Según capacidad técnica/laboratorio","Equipo técnico/salud","Si positivo/sospecha, restringir consumo y activar autoridad"
+"Baños/letrinas","1 por 20 personas, separados por género y seguros","Diaria","Brigada saneamiento","Solicitar baños o reorganizar si supera ratio"
+"Lavado de manos","Puntos con agua y jabón en baños y cocina","Cada turno","Promotor higiene","Reponer insumos y reforzar educación"
