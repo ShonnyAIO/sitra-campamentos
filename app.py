@@ -65,6 +65,11 @@ CSS = """
 .metric-card { background:#F8FBFF; border:1px solid #E2EEF9; border-radius:18px; padding:1rem; }
 .footer { border-top:1px solid #E8EEF4; padding-top:1rem; color:#6D7785; font-size:.82rem; }
 [data-testid="stSidebar"] { background:#F4F8FC; }
+/* Ocultar barra de herramientas y menú superior (Share, GitHub, Estrella, 3 puntos) */
+header[data-testid="stHeader"] { visibility: hidden; height: 0%; }
+div[data-testid="stToolbar"] { visibility: hidden; height: 0rem; }
+#MainMenu { visibility: hidden; }
+footer { visibility: hidden; }
 </style>
 """
 st.markdown(CSS, unsafe_allow_html=True)
