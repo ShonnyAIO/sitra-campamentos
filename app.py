@@ -28,7 +28,60 @@ CSS = """
   --gray:#5F6B7A;
   --green:#2A9D8F;
   --orange:#F77F00;
+  --text-color: #0B1F3A !important;
+  --background-color: #FFFFFF !important;
 }
+
+/* Forzar tema claro global en contenedores principales */
+html, body, [data-testid="stAppViewContainer"], .stApp {
+    background-color: #FFFFFF !important;
+    color: #0B1F3A !important;
+}
+
+/* Ocultar barra de herramientas y menú superior */
+header[data-testid="stHeader"] { visibility: hidden; height: 0%; }
+div[data-testid="stToolbar"] { visibility: hidden; height: 0rem; }
+#MainMenu { visibility: hidden; }
+footer { visibility: hidden; }
+
+/* Sidebar en modo claro con textos visibles */
+[data-testid="stSidebar"] {
+    background-color: #F4F8FC !important;
+}
+
+[data-testid="stSidebar"] *, 
+[data-testid="stSidebar"] label, 
+[data-testid="stSidebar"] p, 
+[data-testid="stSidebar"] span, 
+[data-testid="stSidebar"] h1, 
+[data-testid="stSidebar"] h2, 
+[data-testid="stSidebar"] h3, 
+[data-testid="stSidebar"] div,
+[data-testid="stSidebar"] .stRadio label span {
+    color: #0B1F3A !important;
+}
+
+/* Forzar color oscuro en números y etiquetas de métricas (st.metric) */
+[data-testid="stMetricValue"], 
+[data-testid="stMetricLabel"],
+[data-testid="stMetric"] * {
+    color: #0B1F3A !important;
+}
+
+/* Textos generales, leyendas y markdown */
+[data-testid="stMarkdownContainer"] p,
+[data-testid="stMarkdownContainer"] span,
+[data-testid="stMarkdownContainer"] li,
+[data-testid="stMarkdownContainer"] h1,
+[data-testid="stMarkdownContainer"] h2,
+[data-testid="stMarkdownContainer"] h3,
+[data-testid="stMarkdownContainer"] h4,
+label,
+.stRadio label,
+[data-testid="stWidgetLabel"] {
+    color: #0B1F3A !important;
+}
+
 .main { background: #ffffff; }
 .block-container { padding-top: 1.1rem; padding-bottom: 2rem; }
 .hero {
@@ -64,17 +117,6 @@ CSS = """
 .small { color:var(--gray); font-size:.86rem; }
 .metric-card { background:#F8FBFF; border:1px solid #E2EEF9; border-radius:18px; padding:1rem; }
 .footer { border-top:1px solid #E8EEF4; padding-top:1rem; color:#6D7785; font-size:.82rem; }
-[data-testid="stSidebar"] { background:#F4F8FC; }
-/* Ocultar barra de herramientas y menú superior (Share, GitHub, Estrella, 3 puntos) */
-header[data-testid="stHeader"] { visibility: hidden; height: 0%; }
-div[data-testid="stToolbar"] { visibility: hidden; height: 0rem; }
-#MainMenu { visibility: hidden; }
-footer { visibility: hidden; }
-/* Forzar siempre modo claro (Light mode) */
-[data-testid="stAppViewContainer"], .stApp {
-    background-color: #FFFFFF !important;
-    color: #0B1F3A !important;
-}
 </style>
 """
 st.markdown(CSS, unsafe_allow_html=True)
