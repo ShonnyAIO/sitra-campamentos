@@ -70,6 +70,11 @@ header[data-testid="stHeader"] { visibility: hidden; height: 0%; }
 div[data-testid="stToolbar"] { visibility: hidden; height: 0rem; }
 #MainMenu { visibility: hidden; }
 footer { visibility: hidden; }
+/* Forzar siempre modo claro (Light mode) */
+[data-testid="stAppViewContainer"], .stApp {
+    background-color: #FFFFFF !important;
+    color: #0B1F3A !important;
+}
 </style>
 """
 st.markdown(CSS, unsafe_allow_html=True)
