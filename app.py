@@ -66,6 +66,7 @@ CSS = """
 .footer { border-top:1px solid #E8EEF4; padding-top:1rem; color:#6D7785; font-size:.82rem; }
 [data-testid="stSidebar"] { background:#F4F8FC; }
 .stToolbarActions{ display: none; }
+.stAppHeader { display: none; }
 </style>
 """
 st.markdown(CSS, unsafe_allow_html=True)
