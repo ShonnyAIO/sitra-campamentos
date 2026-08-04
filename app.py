@@ -609,10 +609,11 @@ def page_referencias():
     if df.empty:
         st.warning("No se encontró referencias.csv")
         return
+    cards_html = []
     for _, r in df.iterrows():
         link = r['Enlace']
         link_html = f'<a href="{link}" target="_blank">Abrir fuente verificable</a>' if str(link).startswith("http") else f'<span class="small">{link}</span>'
-        st.markdown(f"""
+        cards_html.append(f"""
         <div class="card">
           <h4>{r['Fuente']}</h4>
           <p><b>Uso:</b> {r['Uso']}</p>
@@ -620,7 +621,8 @@ def page_referencias():
           <p><b>Tipo:</b> {r['Tipo']} &nbsp; | &nbsp; <b>Autoridad:</b> {r['Autoridad']}</p>
           <p>{link_html}</p>
         </div>
-        """, unsafe_allow_html=True)
+        """)
+    st.markdown("".join(cards_html), unsafe_allow_html=True)
     st.markdown("""
     <div class="warn"><b>Nota metodológica:</b> Smart City se usa aquí como marco sociocultural y sistémico: agentes, redes, conductas colectivas, espacio e información. Océano Azul se usa como lógica de innovación de valor humanitaria: no competir por ayuda dispersa, sino crear una red diferenciada de beneficios, coordinación y capacidades.</div>
     """, unsafe_allow_html=True)
@@ -1017,15 +1019,17 @@ def page_escuela_wash_flash():
         st.caption("Los enlaces externos deben revisarse o descargarse previamente cuando haya conectividad. Priorice fuentes oficiales o humanitarias reconocidas.")
         vids = load_csv("tutoriales_wash.csv")
         if not vids.empty:
+            vids_html = []
             for _, r in vids.iterrows():
-                st.markdown(f"""
+                vids_html.append(f"""
                 <div class="card">
                   <h4>{r['Titulo']}</h4>
                   <p><b>Fuente:</b> {r['Fuente']} | <b>Tema:</b> {r['Tema']} | <b>Duración sugerida en clase:</b> {r.get('Momento_clase','Ver según conectividad')}</p>
                   <p><b>Uso didáctico:</b> {r['Uso_didactico']}</p>
                   <p><a href="{r['URL']}" target="_blank">Abrir video / recurso</a></p>
                 </div>
-                """, unsafe_allow_html=True)
+                """)
+            st.markdown("".join(vids_html), unsafe_allow_html=True)
         st.markdown("""
         <div class="notice"><b>Uso recomendado:</b> proyectar 1 video corto, ejecutar una práctica de 10-15 minutos y cerrar con una pregunta: ¿qué cambiaremos hoy en este campamento?</div>
         """, unsafe_allow_html=True)
@@ -1442,6 +1446,7 @@ ensure_db()
 
 st.sidebar.markdown(f"### {APP_NAME}")
 st.sidebar.caption(APP_FULL)
+
 page = st.sidebar.radio("Navegación", [
     "Inicio",
     "Base metodológica",
@@ -1460,26 +1465,36 @@ page = st.sidebar.radio("Navegación", [
     "I2E + A3D + 3S",
     "Dashboard",
     "Reportes",
-])
+], key="nav_menu")
+
 st.sidebar.markdown("---")
 st.sidebar.caption(f"Prototipo local · {APP_VERSION} · Streamlit + SQLite + reglas expertas")
 
-if page == "Inicio": page_inicio()
-elif page == "Base metodológica": page_referencias()
-elif page == "Diagnóstico rápido": page_diagnostico()
-elif page == "FODA Sistémica": page_foda()
-elif page == "12 Elementos Estratégicos": page_elementos()
-elif page == "Objetivos Sistémicos": page_objetivos()
-elif page == "Mapa de riesgos": page_mapa_riesgos()
-elif page == "Plan de acción": page_plan_accion()
-elif page == "Beneficios + Océano Azul": page_beneficios_oceano()
-elif page == "Agua Potable Productiva": page_agua_productiva()
-elif page == "Calidad del agua": page_calidad_agua()
-elif page == "Escuela WASH Flash": page_escuela_wash_flash()
-elif page == "Gerencia del centro": page_gerencia_centro()
-elif page == "Transiliencia + Smart City": page_transiliencia_smart()
-elif page == "I2E + A3D + 3S": page_i2e()
-elif page == "Dashboard": page_dashboard()
-elif page == "Reportes": page_reportes()
+main_slot = st.empty()
 
-st.markdown('<div class="footer">SITRA-Campamentos v0.6.1 · Herramienta de apoyo a decisiones para campamentos transitorios. Uso responsable: complementar con autoridades competentes y protocolos oficiales.</div>', unsafe_allow_html=True)
+with main_slot.container(key=f"page_view_{page}"):
+    if page == "Inicio": page_inicio()
+    elif page == "Base metodológica": page_referencias()
+    elif page == "Diagnóstico rápido": page_diagnostico()
+    elif page == "FODA Sistémica": page_foda()
+    elif page == "12 Elementos Estratégicos": page_elementos()
+    elif page == "Objetivos Sistémicos": page_objetivos()
+    elif page == "Mapa de riesgos": page_mapa_riesgos()
+    elif page == "Plan de acción": page_plan_accion()
+    elif page == "Beneficios + Océano Azul": page_beneficios_oceano()
+    elif page == "Agua Potable Productiva": page_agua_productiva()
+    elif page == "Calidad del agua": page_calidad_agua()
+    elif page == "Escuela WASH Flash": page_escuela_wash_flash()
+    elif page == "Gerencia del centro": page_gerencia_centro()
+    elif page == "Transiliencia + Smart City": page_transiliencia_smart()
+    elif page == "I2E + A3D + 3S": page_i2e()
+    elif page == "Dashboard": page_dashboard()
+    elif page == "Reportes": page_reportes()
+
+    st.markdown('<div class="footer">SITRA-Campamentos v0.6.1 · Herramienta de apoyo a decisiones para campamentos transitorios. Uso responsable: complementar con autoridades competentes y protocolos oficiales.</div>', unsafe_allow_html=True)
+
+
+
+
+
+
